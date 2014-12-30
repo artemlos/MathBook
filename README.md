@@ -15,7 +15,7 @@ GOAL OF THE BOOK IS TO
 **The current structure of the book:**
 
 1. Numeral systems (under construction)
-2. Modular Arithmetic (almost done)
+2. Modular Arithmetic (almost done) (see https://github.com/artemlos/MathBook/releases/tag/Chapter2)
 
 **Additional content to be added:**
 
