@@ -1,0 +1,142 @@
+\documentclass[11pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{Artem Los}
+
+\usepackage{marginnote}
+\usepackage{verbatim} % for the box
+\usepackage{fancyvrb} % for the box
+
+
+\usepackage{listings}
+
+\lstset{language=C,
+numberstyle=\footnotesize,
+basicstyle=\ttfamily\footnotesize,
+numbers=left,
+rulesepcolor=\color{gray}, %fancy shadow for borders
+stepnumber=1,
+frame=shadowbox,
+breaklines=true}
+
+
+\usepackage{pgf}
+\usepackage{pgfpages}
+
+
+\usepackage{cite}
+\usepackage{url}
+
+% GOAL OF THE BOOK IS TO 
+%  - TEACH SELF TAUGHT PEOPE ABOUT ALGORITHMS AND
+%  - WITH HEAVY FOCUS ON YOUTH YEAR 9-12
+%  - PROMOTION OF COMPUTER SCIENCE
+%
+
+
+% include Math exploration + computer code
+% include a description of the pattern based key validation.
+% alg. via C# booket + an intro to how to start with c# and JS
+% how can people start applying mod arithmetic to solve real 3^1233 problems, etc.
+% http://people.uncw.edu/norris/133/proofs/quotientremaindertheorem.htm
+%residue number system
+
+% define  Z (integer) notation
+
+
+
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{$|$}\hsp}{0pt}{\Huge\bfseries}
+
+
+\newcommand\clock[4][2]{%
+\begin{tikzpicture}[scale=#1,line cap=round,line width=#1*3pt]
+\filldraw [fill=white!20] (0,0) circle (2cm);
+\foreach \angle / \label in
+{0/3, 30/2, 60/1, 90/12, 120/11, 150/10, 180/9,
+210/8, 240/7, 270/6, 300/5, 330/4}
+{
+\draw[line width=#1*1pt] (\angle:1.8cm) -- (\angle:2cm);
+\draw (\angle:1.4cm) node[scale=#1]{\textsf{\label}};
+}
+\foreach \angle in {0,90,180,270}
+\draw[line width=#1*2pt] (\angle:1.6cm) -- (\angle:2cm);
+
+\draw[rotate=90,line width=#1*2pt] (0,0) -- (-#2*30-#3*30/60:0.7cm); % hours
+\draw[rotate=90,line width=#1*1.5pt] (0,0) -- (-#3*6:1cm); % minutes
+\draw[rotate=90,line width=#1*.6pt,red] (0,0) -- (-#4*6:1.2cm); % seconds
+\path [fill=black] (0,0) circle (3pt);
+\path [fill=red] (0,0) circle (1.5pt);
+%
+\end{tikzpicture}%
+}
+
+\newcommand\clockA[4][2]{%
+\begin{tikzpicture}[scale=#1,line cap=round,line width=#1*3pt]
+\filldraw [fill=white!20] (0,0) circle (2cm);
+\foreach \angle / \label in
+{0/3, 30/2, 60/1, 90/0, 120/c-1, 150/c-2, 180/\quad c-3,
+210/\dots, 240/\dots, 270/\dots, 300/5, 330/4}
+{
+\draw[line width=#1*1pt] (\angle:1.8cm) -- (\angle:2cm);
+\draw (\angle:1.4cm) node[scale=#1]{\textsf{\label}};
+}
+\foreach \angle in {0,90,180,270}
+\draw[line width=#1*2pt] (\angle:1.6cm) -- (\angle:2cm);
+
+\draw[rotate=90,line width=#1*2pt] (0,0) -- (-#2*30-#3*30/60:0.7cm); % hours
+\draw[rotate=90,line width=#1*1.5pt] (0,0) -- (-#3*6:1cm); % minutes
+\draw[rotate=90,line width=#1*.6pt,red] (0,0) -- (-#4*6:1.2cm); % seconds
+\path [fill=black] (0,0) circle (3pt);
+\path [fill=red] (0,0) circle (1.5pt);
+%
+\end{tikzpicture}%
+}
+
+\usepackage{tikz}
+\usepgflibrary{shapes}
+
+\usepackage{makeidx}
+
+\begin{document}
+\chapter{Number bases}
+
+\section{Exercises}
+An interesting exercise that can be found in \cite[p.49]{Pelerman1} can now be solved with the knowledge of numerical systems:
+What is $84$ equal to, if $8\times 8 =54$?
+
+\begin{enumerate}
+
+\item Find the polynomial $f(x)$ such that $f(7)=89183$, where the coefficient $a_i$ is such that $0 \le a_i < 7$.\\
+\textbf{Hint:} Try to find the coefficients of the polynomial first. What does a polynomial represent?
+\end{enumerate}
+
+% for modulus and encyrption: https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
+
+
+
+\include{Chapter2-ModularArithmetic}
+
+\cite{From2To16}
+\cite{Concrete}
+\cite{Pelerman1}
+\cite{Khan1}
+\cite{TrickBook}
+
+
+
+% floor of x/2 + ceiling of x/2 = x%
+
+%\mbox{}
+
+\bibliographystyle{amsplain}
+\bibliography{bibfileCshharp}
+\bibliographystyle{amsplain}
+
+
+\end{document}
